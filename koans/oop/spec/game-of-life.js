@@ -47,4 +47,16 @@ describe('Game of Life', function () {
 
 		expect(gameOfLife.isCellAlive(3, 4)).toBe(true);
 	});
+
+    it('should validate input', function () {
+        expect(gameOfLife.isValidPhone('42')).toBe(false);
+        expect(gameOfLife.isValidPhone('423')).toBe(true);
+        expect(gameOfLife.isValidPhone('42w')).toBe(false);
+        expect(gameOfLife.isValidPhone('423w')).toBe(false);
+        expect(gameOfLife.isValidPhone('4235')).toBe(true);
+        expect(gameOfLife.isValidPhone('4235 ')).toBe(false);
+        expect(gameOfLife.isValidPhone(' 42 35 ')).toBe(false);
+
+    });
+
 });
