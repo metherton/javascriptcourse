@@ -64,6 +64,17 @@ describe('Invocation patterns', function () {
 			strictMethod();
 			expect(storedThis).toBe(undefined);
 		});
+
+        it('8 should attach object method to window', function() {
+
+            var myFunctionHandler = function(passedFn) {
+                passedFn();
+            };
+
+            myFunctionHandler(samurai.aMethod);
+            expect(storedThis).toBe(window);
+
+        });
 	});
 
 	describe('constructor', function () {

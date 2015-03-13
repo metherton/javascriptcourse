@@ -43,4 +43,31 @@ describe('return', function () {
 		expect(samurai2 instanceof Samurai).toBe(true);
 		expect(samurai2.name).toBe('Myamoto');
 	});
+
+    it('5 - should understand singletons', function () {
+        var Samurai = (function () {
+            var instance;
+            function createInstance() {
+                return {
+                    getName: function() {
+                        return name;
+                    }
+                };
+//                var object = new Object("I am the instance");
+//                return object;
+            }
+            return {
+                getInstance: function () {
+                    if (!instance) {
+                        instance = createInstance();
+                    }
+                    return instance;
+                }
+            };
+        })();
+
+        var samurai1 = Samurai.getInstance(), samurai2 = Samurai.getInstance();
+        expect(samurai1).toBe(samurai2);
+    });
+
 });
