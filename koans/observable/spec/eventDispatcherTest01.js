@@ -4,6 +4,7 @@ describe('eventDispatcher', function () {
 	it('should use eventDispatcher as a mixin', function () {
 		var base = {}, result;
 
+        console.log('sam', SAMURAIPRINCIPLE);
 		result = SAMURAIPRINCIPLE.eventDispatcher(base);
 
 		expect(result).toBe(base);
